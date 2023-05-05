@@ -136,6 +136,15 @@ app.post("/login", (req, res) => {
     }
 })
 
+app.get("/verify", (req, res) => {
+    //Dieser Code wurde von den Schulfolien inspiriert
+    if(req.session.email != null) {
+        return res.status(200).json({message: "Logged in as", email: req.session.email})
+    }else{
+        return res.status(401).json({error: "Not logged in!"})
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
