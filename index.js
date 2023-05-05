@@ -1,7 +1,11 @@
 import express from "express";
+import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 
 // Testdaten wurden mit ChatGPT generiert.
 let tasks = [{
@@ -34,6 +38,7 @@ let tasks = [{
     creation_date: "2023-05-01",
     completion_date: "2023-05-05"
   }]
+
 
 //folgende 4 Funktionen wurde von meinen Unterlagen aus dem Modul 295 inspiriert und angepasst.
 function taskByID(id) {
@@ -70,10 +75,10 @@ app.get("/tasks/:id", (req, res) => {
     }
 });
 
-app.post("/tasks", (req, res) => {
+app.post("/tasks", bodyParser.json(), (req, res) => {
     const taskToInsert = {
-        id: req.query.id,
-        title: req.query.title,
+        id: req.body.id,
+        title: req.body.title,
         creation_date: new Date().toISOString().split('T')[0], // .split() wurde von https://stackoverflow.com/questions/23593052/format-javascript-date-as-yyyy-mm-dd übernommen.
         completion_date: null
     }
@@ -85,7 +90,7 @@ app.put("/tasks/:id", (req, res) => {
     if(taskByID(req.params.id) != null) {
         const taskToUpdate = {
             id: req.params.id,
-            title: req.query.title,
+            title: req.body.title,
             creation_date: taskByID(req.params.id).creation_date,
             completion_date: taskByID(req.params.id).completion_date
         }
