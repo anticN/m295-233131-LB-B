@@ -35,12 +35,22 @@ let tasks = [{
     completion_date: "2023-05-05"
   }]
 
+//folgende Funktion wurde von meinen Unterlagen aus dem Modul 295 inspiriert.
+function taskByID(id) {
+    return tasks.find((task) => task.id === id);
+}
+
+
 app.get("/", (req, res) => {
     res.send("Here is the root")
 });
 
 app.get("/tasks", (req, res) => {
-    res.json(tasks);
+    res.send(tasks);
+})
+
+app.get("/tasks/:id", (req, res) => {
+    res.send(taskByID(req.params.id));
 })
 
 app.listen(port, () => {
