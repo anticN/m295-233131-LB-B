@@ -98,6 +98,7 @@ app.get("/tasks/:id", (req, res) => {
 });
 
 app.post("/tasks", bodyParser.json(), (req, res) => {
+    if(req.body.title != null){
     const taskToInsert = {
         id: req.body.id,
         title: req.body.title,
@@ -107,10 +108,14 @@ app.post("/tasks", bodyParser.json(), (req, res) => {
     }
     newTask(taskToInsert);
     res.status(201).send(taskToInsert);
+    }else{
+        res.status(406).json({error: "title is undefined"})
+    }
 })
 
 app.put("/tasks/:id", (req, res) => {
     if(taskByID(req.params.id) != null) {
+        if(req.body.title != null) {
         const taskToUpdate = {
             id: req.params.id,
             title: req.body.title,
@@ -120,6 +125,9 @@ app.put("/tasks/:id", (req, res) => {
         }
         updateTask(taskToUpdate);
         res.status(200).send(taskByID(req.params.id))
+        }else{
+            res.status(406).json({error: "title is undefined"})
+        }
     }else {
         res.status(404).send("Id " + req.params.id + " not found");
     }
