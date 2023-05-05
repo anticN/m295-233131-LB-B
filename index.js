@@ -62,7 +62,14 @@ app.get("/tasks/:id", (req, res) => {
 });
 
 app.post("/tasks", (req, res) => {
-
+    const taskToInsert = {
+        id: req.query.id,
+        title: req.query.title,
+        creation_date: new Date().toISOString().split('T')[0], // .split() wurde von https://stackoverflow.com/questions/23593052/format-javascript-date-as-yyyy-mm-dd übernommen.
+        completion_date: null
+    }
+    newTask(taskToInsert);
+    res.status(201).send(taskToInsert);
 })
 
 app.listen(port, () => {
