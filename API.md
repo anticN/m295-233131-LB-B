@@ -19,6 +19,11 @@ ToDo-List-Backend
 <b>PUT /tasks/{id}</b>: verändert eine Aufgabe und gibt sie zurück.<br>
 <b>DELETE /tasks/{id}</b>: löscht eine Aufgabe mit der id und gibt die gelöschte Aufgabe zurück.
 
+### Login
+<b>POST /login</b>: Nimmt Credentials entgegen, überprüft diese und gibt ein Cookie zurück<br>
+<b>GET /verify</b>: Überprüft ob das Cookie gültig ist. <br>
+<b>DELETE /logout</b>: Markiert das Cookie als ungültig.
+
 
 
 <style>
