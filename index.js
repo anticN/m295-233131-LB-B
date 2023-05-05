@@ -1,11 +1,20 @@
-import express from "express";
+import express, { response } from "express";
 import bodyParser from "body-parser";
+import session from "express-session";
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
+
+// Dieser Code wurde von den Lernfolien kopiert
+app.use(session({
+    secret: "ultrasecret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {}
+}))
 
 // Testdaten wurden mit ChatGPT generiert.
 let tasks = [{
@@ -108,6 +117,22 @@ app.delete("/tasks/:id", (req, res) => {
         res.send(task)
     }else{
         res.status(404).send("Id " + req.params.id + " not found.")
+    }
+})
+
+
+// login Endpunkte
+const loginPassword = {password: "m295"}
+
+app.post("/login", (req, res) => {
+    const {email, password} = req.body
+
+    if(password === loginPassword.password){  //Dieser Code zum überprüfen des Passworts wurde von den Schulfolien inspiriert.
+        req.session.email = email
+
+        return res.status(200).json({response: "You logged in succesfully"})
+    }else{
+        return res.status(401).json({error: "Incorrect password"})
     }
 })
 
