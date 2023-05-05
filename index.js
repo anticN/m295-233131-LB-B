@@ -145,6 +145,15 @@ app.get("/verify", (req, res) => {
     }
 })
 
+app.delete("/logout", (req, res) => {
+    if(req.session.email != null) {
+        req.session.email = undefined
+        return res.sendStatus(204)
+    }else{
+        return res.status(401).json({error: "Not logged in!"})
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
