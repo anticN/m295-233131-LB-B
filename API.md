@@ -93,8 +93,3 @@ Node Version 20.0
         <td>204 | 401</td>
     </tr>
 </table>
-
-
-<style>
-    b {color: skyblue}
-</style>
