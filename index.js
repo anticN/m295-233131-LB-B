@@ -44,6 +44,10 @@ function newTask(task) {
     tasks = [...tasks, task];
 }
 
+function updateTask(task) {
+    tasks = tasks.map((t) => t.id === task.id ? task : t)
+}
+
 
 app.get("/", (req, res) => {
     res.send("Here is the root")
@@ -70,6 +74,21 @@ app.post("/tasks", (req, res) => {
     }
     newTask(taskToInsert);
     res.status(201).send(taskToInsert);
+})
+
+app.put("/tasks/:id", (req, res) => {
+    if(taskByID(req.params.id) != null) {
+        const taskToUpdate = {
+            id: req.params.id,
+            title: req.query.title,
+            creation_date: taskByID(req.params.id).creation_date,
+            completion_date: taskByID(req.params.id).completion_date
+        }
+        updateTask(taskToUpdate);
+        res.status(200).send(taskByID(req.params.id))
+    }else {
+        res.status(404).send("Id " + req.params.id + " not found");
+    }
 })
 
 app.listen(port, () => {
