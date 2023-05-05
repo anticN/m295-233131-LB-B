@@ -35,9 +35,13 @@ let tasks = [{
     completion_date: "2023-05-05"
   }]
 
-//folgende Funktion wurde von meinen Unterlagen aus dem Modul 295 inspiriert.
+//folgende Funktionen wurde von meinen Unterlagen aus dem Modul 295 inspiriert und angepasst.
 function taskByID(id) {
     return tasks.find((task) => task.id === id);
+}
+
+function newTask(task) {
+    tasks = [...tasks, task];
 }
 
 
@@ -50,7 +54,15 @@ app.get("/tasks", (req, res) => {
 })
 
 app.get("/tasks/:id", (req, res) => {
-    res.send(taskByID(req.params.id));
+    if(taskByID(req.params.id) == null) {
+        res.sendStatus(404);
+    }else {
+        res.send(taskByID(req.params.id))
+    }
+});
+
+app.post("/tasks", (req, res) => {
+
 })
 
 app.listen(port, () => {
