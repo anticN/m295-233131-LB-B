@@ -1,0 +1,113 @@
+commit 251c47558762a8aefc06a2a915e4e1b38b57fb07
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 14:47:55 2023 +0000
+
+    add: esl check for standards
+
+commit 02c4a19bab9334fd7a3eb2522594631ef8b1aebc
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 14:38:37 2023 +0000
+
+    fix: API.md
+
+commit 4e160f790614f4091f77014534d34915e169e999
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 14:35:29 2023 +0000
+
+    updated API.md
+
+commit 010f2f54d012c6c8ad3408952a5b1df837220ff1
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 13:51:52 2023 +0000
+
+    fix: check if title eq. null
+
+commit 65a087e098f88adbe825e0139e5b95a2264cc81c
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 13:24:42 2023 +0000
+
+    add: /tasks can only be used when authorised
+
+commit c3ad25c49eb0e2c88a0800c758263403d54ac1a9
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 12:35:42 2023 +0000
+
+    add: DELETE /logout
+
+commit a7bffab5f59fbe2ba7f3e4dd5281f9ad0834fb64
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 12:35:25 2023 +0000
+
+    update: API.md
+
+commit 6b7f706f29919868d35b7a3e80bf24df31258d9b
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 12:19:54 2023 +0000
+
+    add: GET verify cookie
+
+commit c5a86c2db0614e6523f8b818c5af098614f3d4ec
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 12:12:53 2023 +0000
+
+    add: POST login with email and password "m295"
+
+commit f4c2f7c6e1392690e14b01e53efea83764ae72e5
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 11:50:21 2023 +0000
+
+    fix: changed values from req.query to req.body
+
+commit 2443a1b0b56b01575269f753a5a791bf39aef29d
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 09:43:19 2023 +0000
+
+    add: DELETE task by id
+
+commit 4692e153272cf554ef097bfe36b53aead51393fe
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 09:25:16 2023 +0000
+
+    add: PUT task by id and title in query
+
+commit 72fb2e73fd222f929322079745edaa11f26975ea
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 08:56:21 2023 +0000
+
+    add: POST new task
+
+commit dacfbfc22eea41e10d307488006dfb6da429957b
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 08:40:41 2023 +0000
+
+    fix: GET by id checks if id exists
+
+commit 0d4a0f3030b3e12fd9d2bc4f830f86a01fbe52d6
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 08:35:04 2023 +0000
+
+    add: project documentation
+
+commit d0508af6105fec488d4a3e7461539b3b03514267
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 08:33:33 2023 +0000
+
+    add: GET task by id
+
+commit c319da7cbfa28c5cbcadb0230ceb8b69f975da8c
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 07:49:13 2023 +0000
+
+    add: GET all tasks
+
+commit 7c84d248162603e68ce125c8f1c42bfb3e96d250
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 06:43:07 2023 +0000
+
+    add: setup express and new project
+
+commit f0d6ff711fb7eb0c7c478ce1c2ba1dc2ab1d999b
+Author: anticN <anticn@bzz.ch>
+Date:   Fri May 5 06:30:06 2023 +0000
+
+    add: setup dev container
