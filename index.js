@@ -35,7 +35,7 @@ let tasks = [{
     completion_date: "2023-05-05"
   }]
 
-//folgende Funktionen wurde von meinen Unterlagen aus dem Modul 295 inspiriert und angepasst.
+//folgende 4 Funktionen wurde von meinen Unterlagen aus dem Modul 295 inspiriert und angepasst.
 function taskByID(id) {
     return tasks.find((task) => task.id === id);
 }
@@ -48,7 +48,12 @@ function updateTask(task) {
     tasks = tasks.map((t) => t.id === task.id ? task : t)
 }
 
+function deleteTask(id) {
+    tasks = tasks.filter((t) => t.id !== id);
+}
 
+
+// Endpunkte der API
 app.get("/", (req, res) => {
     res.send("Here is the root")
 });
@@ -88,6 +93,16 @@ app.put("/tasks/:id", (req, res) => {
         res.status(200).send(taskByID(req.params.id))
     }else {
         res.status(404).send("Id " + req.params.id + " not found");
+    }
+})
+
+app.delete("/tasks/:id", (req, res) => {
+    if(taskByID(req.params.id) != null) {
+        const task = taskByID(req.params.id)
+        deleteTask(req.params.id)
+        res.send(task)
+    }else{
+        res.status(404).send("Id " + req.params.id + " not found.")
     }
 })
 
